@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbd-project
+  labels:
+    app: dbd-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dbd-project
+  template:
+    metadata:
+      labels:
+        app: dbd-project
+    spec:
+      containers:
+        - name: dbd-project
+          image: 274127640471.dkr.ecr.us-east-2.amazonaws.com/dbd-project:1.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
